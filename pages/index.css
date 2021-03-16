@@ -1,8 +1,22 @@
 @import '../vendor/normalize.css';
+@import '../vendor/fonts/fonts.css';
 
 @import '../blocks/page/page.css';
 @import '../blocks/page/__header/page__header.css';
+@import '../blocks/page/__profile/page__profile.css';
 
 @import '../blocks/container/container.css';
 
 @import '../blocks/header/header.css';
+
+@import '../blocks/profile/profile.css';
+@import '../blocks/profile/__add-button/profile__add-button.css';
+@import '../blocks/profile/__avatar-image/profile__avatar-image.css';
+@import '../blocks/profile/__avatar/profile__avatar.css';
+@import '../blocks/profile/__description/profile__description.css';
+@import '../blocks/profile/__info/profile__info.css';
+@import '../blocks/profile/__name/profile__name.css';
+
+@import '../blocks/button/button.css';
+@import '../blocks/button/_type/button_type_add.css';
+@import '../blocks/button/_type/button_type_edit.css';
