@@ -4,6 +4,7 @@
 @import '../blocks/page/page.css';
 @import '../blocks/page/__header/page__header.css';
 @import '../blocks/page/__profile/page__profile.css';
+@import '../blocks/page/__elements/page__elements.css';
 
 @import '../blocks/container/container.css';
 
@@ -20,3 +21,19 @@
 @import '../blocks/button/button.css';
 @import '../blocks/button/_type/button_type_add.css';
 @import '../blocks/button/_type/button_type_edit.css';
+@import '../blocks/button/_type/button_type_like.css';
+
+@import '../blocks/elements/elements.css';
+
+@import '../blocks/element/element.css';
+@import '../blocks/element/__body/element__body.css';
+@import '../blocks/element/__head/element__head.css';
+@import '../blocks/element/__icon/element__icon.css';
+@import '../blocks/element/__icon/_type/element__icon_type_filled.css';
+@import '../blocks/element/__icon/_type/element__icon_type_outline.css';
+@import '../blocks/element/__image/element__image.css';
+@import '../blocks/element/__name/element__name.css';
+
+
+
+

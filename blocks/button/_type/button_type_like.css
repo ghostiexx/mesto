@@ -1,0 +1,12 @@
+.button_type_like {
+  padding: 0;
+  border: none;
+}
+
+.button_active .element__icon_type_outline {
+  display: none;
+}
+
+.button_active .element__icon_type_filled{
+  display: block;
+}
