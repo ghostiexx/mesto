@@ -1,0 +1,7 @@
+.element__button_active .element__icon_type_outline {
+    display: none;
+}
+
+.element__button_active .element__icon_type_filled{
+    display: block;
+}
