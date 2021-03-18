@@ -12,6 +12,7 @@ let savePopupButton = popup.querySelector('.popup__button');
 let imageCard = document.querySelectorAll('.element');
 let likeButton = [];
 
+
 for (let i = 0; i < imageCard.length; i++) {
     likeButton[i] = imageCard[i].querySelector('.element__button');
 }
@@ -37,15 +38,11 @@ function setProfileInfo() {
 }
 
 function openPopup() {
-    popup.classList.add('popup_active');
+    popup.classList.add('popup_opened');
 }
 
 function closePopup() {
-    popup.classList.remove('popup_active');
-}
-
-function setLike() {
-    likeButton.classList.add('element__button_active')
+    popup.classList.remove('popup_opened');
 }
 
 editButton.addEventListener('click', function() {
