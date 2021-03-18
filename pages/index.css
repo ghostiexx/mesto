@@ -40,12 +40,11 @@
 @import '../blocks/footer/__copyright/footer__copyright.css';
 
 @import '../blocks/popup/popup.css';
-@import '../blocks/popup/_active/popup_active.css';
+@import '../blocks/popup/_opened/popup_opened.css';
 @import '../blocks/popup/__close/popup__close.css';
-@import '../blocks/popup/__content/popup__content.css';
+@import '../blocks/popup/__container/popup__container.css';
 @import '../blocks/popup/__input/popup__input.css';
 @import '../blocks/popup/__inputs/popup__inputs.css';
-@import '../blocks/popup/__overlay/popup__overlay.css';
 @import '../blocks/popup/__title/popup__title.css';
 
 @import '../blocks/input/input.css';
