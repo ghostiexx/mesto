@@ -2,3 +2,9 @@
   padding: 7px;
   border: 1px solid #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .button_type_edit {
+    padding: 5px;
+  }
+}

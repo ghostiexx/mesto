@@ -5,3 +5,16 @@
   overflow: hidden;
   margin-right: 30px;
 }
+
+@media screen and (max-width: 960px) {
+  .profile__avatar {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__avatar {
+    margin-right: 0;
+    margin-bottom: 26px;
+  }
+}

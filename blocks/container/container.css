@@ -3,3 +3,18 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (max-width: 960px) {
+  .container {
+    max-width: unset;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
