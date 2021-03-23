@@ -2,12 +2,12 @@
 
 ### Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
- **Стек**
+**Стек**
 * HTML5
-* CSS3
+* CSS3 (Flex, Grid, Media)
 * BEM-Nested
 * Javascript (открытие попапов, лайки)
 
-**Дизайн проекта**
-
+**Ссылки проекта**
 * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Ссылка на GitHub Pages](https://ghostiexx.github.io/mesto/)
