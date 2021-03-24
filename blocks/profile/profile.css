@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
+  padding: 40px 0 50px;
 }
 
 @media screen and (max-width: 768px) {
