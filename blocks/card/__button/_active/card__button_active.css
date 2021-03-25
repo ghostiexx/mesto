@@ -1,7 +1,0 @@
-.card__button_active .card__icon_type_outline {
-    display: none;
-}
-
-.card__button_active .card__icon_type_filled{
-    display: block;
-}

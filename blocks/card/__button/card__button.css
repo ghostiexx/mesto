@@ -2,4 +2,11 @@
     margin-left: 10px;
     padding: 0;
     border: none;
+    background: url(../../../images/heart.svg) center center no-repeat;
+    min-width: 22px;
+    height: 19px;
+}
+
+.card__button:focus {
+    background-image: url(../../../images/heart-filled.svg);
 }

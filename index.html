@@ -31,87 +31,76 @@
       </button>
     </section>
     <section class="cards">
-      <div class="card">
+      <article class="card">
         <div class="card__head">
           <img src="./images/1.jpg" alt="Берег" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Black sand">Black sand</p>
+          <h2 class="card__name" title="Black sand">Black sand</h2>
+<!--          вы посоветовали сделать через псевдоклассы, но теперь поставить лайк можно одному элементу. разве так лучше? -->
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <div class="card__head">
           <img src="./images/2.jpg" alt="Горы" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Remote canyon on the South Coast of Iceland">Remote canyon on the South Coast of Iceland</p>
+          <h2 class="card__name" title="Remote canyon on the South Coast of Iceland">Remote canyon on the South Coast of Iceland</h2>
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <div class="card__head">
           <img src="./images/3.jpg" alt="Северное сияние" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Northern light evening">Northern light evening</p>
+          <h2 class="card__name" title="Northern light evening">Northern light evening</h2>
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <div class="card__head">
           <img src="./images/4.jpg" alt="Берег" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Mountain terrain">Mountain terrain</p>
+          <h2 class="card__name" title="Mountain terrain">Mountain terrain</h2>
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <div class="card__head">
           <img src="./images/5.jpg" alt="Водопад" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Seljalandsfoss">Seljalandsfoss</p>
+          <h2 class="card__name" title="Seljalandsfoss">Seljalandsfoss</h2>
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
-      <div class="card">
+      </article>
+      <article class="card">
         <div class="card__head">
           <img src="./images/6.jpg" alt="Дорога" class="card__image">
         </div>
         <div class="card__body">
-          <p class="card__name" title="Open road">Open road</p>
+          <h2 class="card__name" title="Open road">Open road</h2>
           <button class="card__button button" type="button" aria-label="Поставить лайк">
-            <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
-            <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
         </div>
-      </div>
+      </article>
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy;&ensp;2020 Mesto Russia</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form action="/" class="popup__form">
+      <form action="/" name="popup-edit" class="popup__form">
         <fieldset class="popup__inputs">
           <input type="text" class="popup__input popup__input_type_name input" value="Benjamin Hardman" placeholder="Введите имя" name="profile-name">
           <input type="text" class="popup__input popup__input_type_description input" value="Photographer based in Iceland" placeholder="Введите описание" name="profile-description">
