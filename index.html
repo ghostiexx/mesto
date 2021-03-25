@@ -21,12 +21,12 @@
       </div>
       <div class="profile__info">
         <h1 class="profile__name">Benjamin Hardman</h1>
-        <button class="profile__edit-button button" type="button">
+        <button class="profile__edit-button button" type="button" aria-label="Редактировать профиль">
           <img src="./images/edit.svg" alt="Иконка редактирования">
         </button>
         <p class="profile__description">Photographer based in Iceland</p>
       </div>
-      <button class="profile__add-button button" type="button">
+      <button class="profile__add-button button" type="button" aria-label="Добавить фотографию">
         <img src="./images/add.svg" alt="Иконка добавления">
       </button>
     </section>
@@ -37,7 +37,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Black sand">Black sand</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -49,7 +49,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Remote canyon on the South Coast of Iceland">Remote canyon on the South Coast of Iceland</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -61,7 +61,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Northern light evening">Northern light evening</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -73,7 +73,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Mountain terrain">Mountain terrain</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -85,7 +85,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Seljalandsfoss">Seljalandsfoss</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -97,7 +97,7 @@
         </div>
         <div class="card__body">
           <p class="card__name" title="Open road">Open road</p>
-          <button class="card__button button">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
             <img src="./images/heart.svg" alt="Иконка лайка" class="card__icon card__icon_type_outline">
             <img src="./images/heart-filled.svg" alt="Заполненная иконка лайка" class="card__icon card__icon_type_filled">
           </button>
@@ -108,7 +108,7 @@
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
-  <section class="popup">
+  <div class="popup">
     <div class="popup__container">
       <h3 class="popup__title">Редактировать профиль</h3>
       <form action="/" class="popup__form">
@@ -116,13 +116,13 @@
           <input type="text" class="popup__input popup__input_type_name input" value="Benjamin Hardman" placeholder="Введите имя" name="profile-name">
           <input type="text" class="popup__input popup__input_type_description input" value="Photographer based in Iceland" placeholder="Введите описание" name="profile-description">
         </fieldset>
-        <button class="popup__save button" type="submit">Сохранить</button>
+        <button class="popup__save button" type="submit" aria-label="Сохранить изменения">Сохранить</button>
       </form>
-      <button class="popup__close button">
+      <button class="popup__close button" type="button" aria-label="Закрыть модальное окно">
         <img src="./images/close.svg" alt="Иконка закрытия">
       </button>
     </div>
-  </section>
+  </div>
   <script src="scripts/index.js"></script>
 </body>
 </html>
