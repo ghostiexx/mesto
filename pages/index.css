@@ -2,11 +2,6 @@
 @import '../vendor/fonts/fonts.css';
 
 @import '../blocks/page/page.css';
-@import '../blocks/page/__header/page__header.css';
-@import '../blocks/page/__profile/page__profile.css';
-@import '../blocks/page/__elements/page__elements.css';
-
-@import '../blocks/container/container.css';
 
 @import '../blocks/header/header.css';
 
@@ -20,23 +15,19 @@
 @import '../blocks/profile/__name/profile__name.css';
 
 @import '../blocks/button/button.css';
-@import '../blocks/button/_type/button_type_add.css';
-@import '../blocks/button/_type/button_type_edit.css';
-@import '../blocks/button/_type/button_type_like.css';
-@import '../blocks/button/_type/button_type_close.css';
-@import '../blocks/button/_type/button_type_form.css';
 
-@import '../blocks/elements/elements.css';
+@import '../blocks/cards/cards.css';
 
-@import '../blocks/element/element.css';
-@import '../blocks/element/__body/element__body.css';
-@import '../blocks/element/__head/element__head.css';
-@import '../blocks/element/__icon/element__icon.css';
-@import '../blocks/element/__icon/_type/element__icon_type_filled.css';
-@import '../blocks/element/__icon/_type/element__icon_type_outline.css';
-@import '../blocks/element/__image/element__image.css';
-@import '../blocks/element/__name/element__name.css';
-@import '../blocks/element/__button/_active/element__button_active.css';
+@import '../blocks/card/card.css';
+@import '../blocks/card/__body/card__body.css';
+@import '../blocks/card/__head/card__head.css';
+@import '../blocks/card/__icon/card__icon.css';
+@import '../blocks/card/__icon/_type/card__icon_type_filled.css';
+@import '../blocks/card/__icon/_type/card__icon_type_outline.css';
+@import '../blocks/card/__image/element__image.css';
+@import '../blocks/card/__name/card__name.css';
+@import '../blocks/card/__button/card__button.css';
+@import '../blocks/card/__button/_active/card__button_active.css';
 
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__copyright/footer__copyright.css';
@@ -44,6 +35,7 @@
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/_opened/popup_opened.css';
 @import '../blocks/popup/__close/popup__close.css';
+@import '../blocks/popup/__save/popup__save.css';
 @import '../blocks/popup/__container/popup__container.css';
 @import '../blocks/popup/__input/popup__input.css';
 @import '../blocks/popup/__inputs/popup__inputs.css';

@@ -1,0 +1,8 @@
+.popup__save {
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    padding: 14px;
+    width: 100%;
+}

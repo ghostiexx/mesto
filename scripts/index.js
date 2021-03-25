@@ -7,22 +7,22 @@ let popup = document.querySelector('.popup');
 let closePopupButton = popup.querySelector('.popup__close');
 let popupInputName = popup.querySelector('.popup__input_type_name');
 let popupInputDescription = popup.querySelector('.popup__input_type_description');
-let savePopupButton = popup.querySelector('.popup__button');
+let savePopupButton = popup.querySelector('.popup__save');
 
-let imageCard = document.querySelectorAll('.element');
+let imageCard = document.querySelectorAll('.card');
 let likeButton = [];
 
 
 for (let i = 0; i < imageCard.length; i++) {
-    likeButton[i] = imageCard[i].querySelector('.element__button');
+    likeButton[i] = imageCard[i].querySelector('.card__button');
 }
 
 for (let i = 0; i < likeButton.length; i++) {
     likeButton[i].addEventListener('click', function () {
-        if (likeButton[i].classList.contains('element__button_active')) {
-            likeButton[i].classList.remove('element__button_active');
+        if (likeButton[i].classList.contains('card__button_active')) {
+            likeButton[i].classList.remove('card__button_active');
         } else {
-            likeButton[i].classList.add('element__button_active');
+            likeButton[i].classList.add('card__button_active');
         }
     })
 }
