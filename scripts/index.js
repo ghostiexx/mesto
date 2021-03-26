@@ -9,9 +9,11 @@ let popupInputName = popup.querySelector('.popup__input_type_name');
 let popupInputDescription = popup.querySelector('.popup__input_type_description');
 let popupForm = popup.querySelector('.popup__form');
 
-function setProfileInfo() {
+function setProfileInfo(event) {
+    event.preventDefault();
     userName.textContent = popupInputName.value;
     userDescription.textContent = popupInputDescription.value;
+    closePopup();
 }
 
 function openPopup() {
@@ -28,9 +30,4 @@ editButton.addEventListener('click', openPopup)
 
 closePopupButton.addEventListener('click', closePopup)
 
-popupForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    setProfileInfo();
-    closePopup();
-});
+popupForm.addEventListener('submit', setProfileInfo);

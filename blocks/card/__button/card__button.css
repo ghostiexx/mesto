@@ -7,6 +7,10 @@
     height: 19px;
 }
 
+.card__button:hover {
+    opacity: .5;
+}
+
 .card__button:focus {
     background-image: url(../../../images/heart-filled.svg);
 }
