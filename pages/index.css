@@ -23,24 +23,28 @@
 @import '../blocks/card/card.css';
 @import '../blocks/card/__body/card__body.css';
 @import '../blocks/card/__head/card__head.css';
-@import '../blocks/card/__icon/card__icon.css';
-@import '../blocks/card/__icon/_type/card__icon_type_filled.css';
-@import '../blocks/card/__icon/_type/card__icon_type_outline.css';
 @import '../blocks/card/__image/element__image.css';
 @import '../blocks/card/__name/card__name.css';
 @import '../blocks/card/__button/card__button.css';
+@import '../blocks/card/__button/_active/card__button_active.css';
+@import '../blocks/card/__delete-btn/card__delete-btn.css';
 
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__copyright/footer__copyright.css';
 
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/_opened/popup_opened.css';
+@import '../blocks/popup/_type/popup_type_image.css';
 @import '../blocks/popup/__close/popup__close.css';
 @import '../blocks/popup/__save/popup__save.css';
 @import '../blocks/popup/__container/popup__container.css';
+@import '../blocks/popup/__container/_type/popup__container_type_image.css';
 @import '../blocks/popup/__input/popup__input.css';
 @import '../blocks/popup/__inputs/popup__inputs.css';
 @import '../blocks/popup/__title/popup__title.css';
+@import '../blocks/popup/__figure/popup__figure.css';
+@import '../blocks/popup/__image/popup__image.css';
+@import '../blocks/popup/__caption/popup__caption.css';
 
 
 
