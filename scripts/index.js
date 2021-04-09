@@ -68,8 +68,8 @@ function openPopup(popupName) {
     popupName.classList.add('popup_opened');
 }
 
-function closePopup(btn) {
-    btn.closest('.popup').classList.remove('popup_opened');
+function closePopup(popupName) {
+    popupName.classList.remove('popup_opened');
 }
 
 function setImagePopupInfo(src, name) {
@@ -127,15 +127,15 @@ addButton.addEventListener('click', () => {
 });
 
 closeAddPopupBtn.addEventListener('click', () => {
-    closePopup(closeAddPopupBtn);
+    closePopup(popupAdd);
 });
 
 closeEditPopupBtn.addEventListener('click', () => {
-    closePopup(closeEditPopupBtn);
+    closePopup(popupEdit);
 });
 
 closeImagePopupBtn.addEventListener('click', () => {
-    closePopup(closeImagePopupBtn);
+    closePopup(popupImage);
 });
 
 editForm.addEventListener('submit', setProfileInfo);
