@@ -1,10 +1,10 @@
 import { popupImage, openPopup } from './index.js'
 
 export class Card {
-  constructor(template, imageURI, title) {
+  constructor(template, params) {
     this._cardTemplate = template;
-    this._title = title;
-    this._imageURI = imageURI;
+    this._title = params.title;
+    this._imageURI = params.imageURI;
   }
 
   _getCardFromTemplate() {
@@ -33,13 +33,12 @@ export class Card {
 
   _setEventListeners() {
     this._deleteButton.addEventListener('click', () => {
-      this._cardItem = this._deleteButton.closest('.card');
-      this._cardItem.remove();
+      this._cardElement.remove();
+      this._cardElement = null;
     });
 
     this._likeButton.addEventListener('click', (event) => {
-      this._eventTarget = event.target;
-      this._eventTarget.classList.toggle('card__button_active');
+      this._likeButton.classList.toggle('card__button_active');
     });
 
     this._cardImage.addEventListener('click', () => {
