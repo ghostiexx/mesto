@@ -41,10 +41,10 @@
       <h3 class="popup__title">Редактировать профиль</h3>
       <form action="/" name="popup-edit" class="popup__form popup__form_type_edit">
         <fieldset class="popup__inputs">
-          <input type="text" class="popup__input popup__input_type_name" placeholder="Введите имя" id="name-input" name="name-input" minlength="2" maxlength="40" required>
-          <span class="popup__error name-input-error">Message</span>
-          <input type="text" class="popup__input popup__input_type_description" id="description-input" placeholder="Введите описание" name="description-input" minlength="2" maxlength="200" required>
-          <span class="popup__error description-input-error">Message</span>
+          <input type="text" class="popup__input popup__input_type_name" placeholder="Введите имя" id="name" name="name" minlength="2" maxlength="40" required>
+          <span class="popup__error name-error">Message</span>
+          <input type="text" class="popup__input popup__input_type_description" id="description" placeholder="Введите описание" name="description" minlength="2" maxlength="200" required>
+          <span class="popup__error description-error">Message</span>
           <button class="popup__save button" type="submit" aria-label="Сохранить изменения">Сохранить</button>
         </fieldset>
       </form>
@@ -57,10 +57,10 @@
       <h3 class="popup__title">Новое место</h3>
       <form action="/" name="popup-add" class="popup__form popup__form_type_add">
         <fieldset class="popup__inputs">
-          <input type="text" class="popup__input popup__input_type_text" placeholder="Название" id="place-input" name="place-input" minlength="2" maxlength="30" required>
-          <span class="popup__error place-input-error">Message</span>
-          <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" id="link-input" name="link-input" required>
-          <span class="popup__error link-input-error">Message</span>
+          <input type="text" class="popup__input popup__input_type_text" placeholder="Название" id="place" name="place" minlength="2" maxlength="30" required>
+          <span class="popup__error place-error">Message</span>
+          <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" id="link" name="link" required>
+          <span class="popup__error link-error">Message</span>
           <button class="popup__save popup__save_disabled button" type="submit" aria-label="Создать" disabled>Создать</button>
         </fieldset>
       </form>

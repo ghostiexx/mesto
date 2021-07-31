@@ -1,10 +1,10 @@
-import { popupImage, openPopup } from './index.js'
-
 export class Card {
-  constructor(template, params) {
+  constructor(template, params, handleCardClick) {
     this._cardTemplate = template;
     this._title = params.title;
     this._imageURI = params.imageURI;
+    
+    this._handleCardClick = handleCardClick;
   }
 
   _getCardFromTemplate() {
@@ -13,7 +13,6 @@ export class Card {
     this._likeButton = this._cardElement.querySelector('.card__button');
     this._cardImage = this._cardElement.querySelector('.card__image');
     this._cardTitle = this._cardElement.querySelector('.card__name');
-
   }
 
   _setCardInfo() {
@@ -22,13 +21,9 @@ export class Card {
     this._cardImage.alt = `Изображение ${this._title}`;
   }
 
-  _setPopupInfo(src, title) {
-    this._cardPopup = document.querySelector('.popup_type_image');
-    this._frame = this._cardPopup.querySelector('.popup__image');
-    this._caption = this._cardPopup.querySelector('.popup__caption');
-
-    this._frame.src = src;
-    this._caption.textContent = title;
+  _showPopup(e) {
+    this._handleCardClick(e);
+    return;
   }
 
   _setEventListeners() {
@@ -41,10 +36,7 @@ export class Card {
       this._likeButton.classList.toggle('card__button_active');
     });
 
-    this._cardImage.addEventListener('click', () => {
-      this._setPopupInfo(this._cardImage.src, this._cardTitle.textContent);
-      openPopup(popupImage);
-    });
+    this._cardImage.addEventListener('click', (e) => this._showPopup(e));
   }
 
   generateCard() {
