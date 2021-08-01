@@ -2,8 +2,6 @@ export class Popup {
   constructor(selector) {
     this._selector = selector;
     this._popup = document.querySelector(selector);
-
-    this.setEventListeners();
   }
 
   _handleEscClose(event) {

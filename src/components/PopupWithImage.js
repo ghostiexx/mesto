@@ -8,13 +8,11 @@ export class PopupWithImage extends Popup {
     this._popupImage = this._popup.querySelector('.popup__image');
   }
 
-  open(event) {
+  open(link, title) {
     super.open();
 
-    const title = event.target.closest('.card').querySelector('.card__name').textContent;
-
     this._popupCaption.textContent = title;
-    this._popupImage.src = event.target.src;
-    this._popupImage.alt = event.target.alt;
+    this._popupImage.src = link;
+    this._popupImage.alt = title;
   }
 }

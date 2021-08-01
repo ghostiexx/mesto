@@ -1,11 +1,3 @@
-import { UserInfo } from '../UserInfo.js';
-import { PopupWithImage } from '../PopupWithImage.js';
-import { PopupWithForm } from '../PopupWithForm.js';
-import { editFormHandler, addFormHandler } from './functions.js'
-import { Section } from '../Section.js';
-import { FormValidator } from '../FormValidator.js';
-import { Card } from '../Сard.js';
-
 export const initialCards = [
   {
       name: 'Архыз',
@@ -39,35 +31,10 @@ export const validatorSelectors = {
     inactiveButtonClass: 'popup__save_disabled',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
-}
-
-export const userInfo = new UserInfo({
-    nameSelector: '.profile__name',
-    descriptionSelector: '.profile__description'
-});
+};
 
 export const btnEdit = document.querySelector('.profile__edit-button');
 export const btnAdd = document.querySelector('.profile__add-button');
 export const cardTemplate = document.querySelector('#card-template').content;
 export const formSelector = document.querySelector('.popup__form_type_add');
 export const formSelectorTwo = document.querySelector('.popup__form_type_edit');
-
-export const popupWithImage = new PopupWithImage('.popup_type_image');
-export const popupWithEditForm = new PopupWithForm('.popup_type_edit', editFormHandler);
-export const popupWithAddForm = new PopupWithForm('.popup_type_add', addFormHandler);
-
-export const formValidator = new FormValidator(validatorSelectors, formSelector);
-export const formValidatorTwo = new FormValidator(validatorSelectors, formSelectorTwo);
-
-export const cardSection = new Section({
-    items: initialCards,
-    renderer: function(item) {
-        const card = new Card(
-            cardTemplate,
-            { imageURI: item.link, title: item.name },
-            (e) => popupWithImage.open(e)
-        );
-        
-        return card.generateCard();
-    }
-}, '.cards');

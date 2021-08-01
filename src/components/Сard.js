@@ -21,22 +21,17 @@ export class Card {
     this._cardImage.alt = `Изображение ${this._title}`;
   }
 
-  _showPopup(e) {
-    this._handleCardClick(e);
-    return;
-  }
-
   _setEventListeners() {
     this._deleteButton.addEventListener('click', () => {
       this._cardElement.remove();
       this._cardElement = null;
     });
 
-    this._likeButton.addEventListener('click', (event) => {
+    this._likeButton.addEventListener('click', () => {
       this._likeButton.classList.toggle('card__button_active');
     });
 
-    this._cardImage.addEventListener('click', (e) => this._showPopup(e));
+    this._cardImage.addEventListener('click', () => this._handleCardClick());
   }
 
   generateCard() {
