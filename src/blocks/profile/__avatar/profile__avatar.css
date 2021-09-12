@@ -5,6 +5,14 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile__avatar:hover .profile__avatar-btn {
+  opacity: 1;
+  pointer-events: all;
+  visibility: visible;
 }
 
 @media screen and (max-width: 960px) {

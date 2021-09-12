@@ -1,48 +1,78 @@
 import { 
     btnEdit, 
     btnAdd, 
-    initialCards,
+    btnEditAvatar,
     validatorSelectors, 
     formSelector, 
-    formSelectorTwo 
+    formSelectorTwo,
+    formSelectorThree,
+    userId
 } from '../utils/constants.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
-import { editFormHandler, addFormHandler, setInputValues, renderCard } from '../utils/functions.js'
+import { editFormHandler, addFormHandler, updateAvatarHandler, setInputValues, renderCard } from '../utils/functions.js'
 import { Section } from '../components/Section.js';
 import { FormValidator } from '../components/FormValidator.js';
+import { Api } from '../components/Api.js';
 
 import './index.css';
 
 export const userInfo = new UserInfo({
     nameSelector: '.profile__name',
-    descriptionSelector: '.profile__description'
+    descriptionSelector: '.profile__description',
+    avatarSelector: '.profile__avatar-image '
+});
+
+export const api =  new Api({
+    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-27',
+    headers: {
+        authorization: 'd1fb4f5d-7dcb-41a7-a4a6-36843c6f0f6c',
+        'Content-Type': 'application/json'
+    }
 });
 
 export const popupWithImage = new PopupWithImage('.popup_type_image');
 const popupWithEditForm = new PopupWithForm('.popup_type_edit', editFormHandler);
 const popupWithAddForm = new PopupWithForm('.popup_type_add', addFormHandler);
+const updateAvatarPopup = new PopupWithForm('.popup_type_update', updateAvatarHandler);
 
 const formValidator = new FormValidator(validatorSelectors, formSelector);
 const formValidatorTwo = new FormValidator(validatorSelectors, formSelectorTwo);
+const formValidatorThree = new FormValidator(validatorSelectors, formSelectorThree);
 
-export const cardSection = new Section({
-    items: initialCards,
-    renderer: function(item) {
-        const card = renderCard(item.link, item.name);
-        return card.generateCard();
-    }
-}, '.cards');
+const renderInitialCards = (cards) => {
+    const cardSection = new Section({
+        items: cards,
+        renderer: (item) => {
+            const card = renderCard(item.link, item.name, item._id, item.owner._id, userId, item.likes);
+            return card.generateCard();
+        }
+    }, '.cards')
+
+    cardSection.render();
+};
+
+api.getInitialCards().then((cards) => {
+    renderInitialCards(cards);
+});
+
+api.getUserInfo().then((info) => {
+    userInfo.setUserInfo({
+        name: info.name,
+        description: info.about
+    });
+    userInfo.setUserAvatar(info.avatar);
+});
 
 popupWithImage.setEventListeners();
 popupWithEditForm.setEventListeners();
 popupWithAddForm.setEventListeners();
-
-cardSection.render();
+updateAvatarPopup.setEventListeners();
 
 formValidator.enableValidation();
 formValidatorTwo.enableValidation();
+formValidatorThree.enableValidation();
 
 btnEdit.addEventListener('click', () => { 
     popupWithEditForm.open();
@@ -51,4 +81,8 @@ btnEdit.addEventListener('click', () => {
 
 btnAdd.addEventListener('click', (e) => { 
     popupWithAddForm.open(e); 
+});
+
+btnEditAvatar.addEventListener('click', () => {
+    updateAvatarPopup.open();
 });

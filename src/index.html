@@ -17,13 +17,16 @@
     <section class="profile">
       <div class="profile__avatar">
         <img src="./images/avatar.jpg" alt="Изображение профиля" class="profile__avatar-image">
+        <div class="profile__avatar-btn">
+          <img src="./images/edit.svg" alt="Иконка редактирования" class="profile__avatar-icon">
+        </div>
       </div>
       <div class="profile__info">
-        <h1 class="profile__name">Benjamin Hardman</h1>
+        <h1 class="profile__name"></h1>
         <button class="profile__edit-button button" type="button" aria-label="Редактировать профиль">
           <img src="./images/edit.svg" alt="Иконка редактирования">
         </button>
-        <p class="profile__description">Photographer based in Iceland</p>
+        <p class="profile__description"></p>
       </div>
       <button class="profile__add-button button" type="button" aria-label="Добавить фотографию">
         <img src="./images/add.svg" alt="Иконка добавления" class="profile__add-icon">
@@ -77,6 +80,32 @@
       </button>
     </div>
   </div>
+  <div class="popup popup_type_confirm">
+    <div class="popup__container">
+      <h3 class="popup__title">Вы уверены?</h3>
+      <form action="/" name="popup-edit" class="popup__form popup__form_type_confirm">
+        <fieldset class="popup__inputs">
+          <button class="popup__save popup__save_type_confirm button" type="submit" aria-label="Сохранить изменения">Да</button>
+        </fieldset>
+      </form>
+      <button class="popup__close button" type="button" aria-label="Закрыть модальное окно">
+      </button>
+    </div>
+  </div>
+  <div class="popup popup_type_update">
+    <div class="popup__container">
+      <h3 class="popup__title">Новое место</h3>
+      <form action="/" name="popup-add" class="popup__form popup__form_type_update">
+        <fieldset class="popup__inputs">
+          <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" id="link" name="link" required>
+          <span class="popup__error link-error">Message</span>
+          <button class="popup__save popup__save_disabled button" type="submit" aria-label="Создать" disabled>Сохранить</button>
+        </fieldset>
+      </form>
+      <button class="popup__close button" type="button" aria-label="Закрыть модальное окно">
+      </button>
+    </div>
+  </div>
   <template id="card-template">
     <article class="card">
       <div class="card__head">
@@ -85,8 +114,11 @@
       </div>
       <div class="card__body">
         <h2 class="card__name" title="Open road">Open road</h2>
-        <button class="card__button button" type="button" aria-label="Поставить лайк">
-        </button>
+        <div class="card__column">
+          <button class="card__button button" type="button" aria-label="Поставить лайк">
+          </button>
+          <span class="card__like-counter">0</span>
+        </div>
       </div>
     </article>
   </template>
