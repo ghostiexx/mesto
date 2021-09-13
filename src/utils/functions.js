@@ -1,6 +1,14 @@
-import { cardTemplate, cardsContainer } from "./constants.js";
+import { cardTemplate, cardsContainer, userId } from "./constants.js";
 import { Card } from '../components/Сard.js';
-import { popupWithImage, cardSection, userInfo, api } from '../pages/index.js';
+import { 
+  popupWithImage, 
+  updateAvatarPopup, 
+  popupWithAddForm, 
+  popupWithEditForm, 
+  confirmDeletePopup, 
+  userInfo, 
+  api 
+} from '../pages/index.js';
 
 export function setInputValues(userInfo) {
   const nameFiled = document.querySelector('.popup__input_type_name');
@@ -15,8 +23,17 @@ export function editFormHandler(event, values) {
   event.preventDefault();
 
   const { name, description } = values;
-  api.editProfile(name, description);
-  userInfo.setUserInfo({ name, description });
+
+  popupWithEditForm.setButtonTextContent();
+  api.editProfile(name, description)
+    .then(function() {
+      userInfo.setUserInfo({ name, description });
+    })
+    .catch(error => alert(`Ошибка: ${error}`))
+    .finally(() => {
+      popupWithEditForm.close();
+      popupWithEditForm.setButtonTextContent('Сохранить');
+    })
 }
 
 export function addFormHandler(event, values) {
@@ -24,21 +41,38 @@ export function addFormHandler(event, values) {
 
   const popupSaveBtn = event.target.querySelector('.popup__save');
   const { place, link } = values;
-  const card = renderCard(link, place);
 
-  api.addCard(place, link);
-  cardsContainer.prepend(card.generateCard());
-  popupSaveBtn.classList.add('popup__save_disabled');
-  popupSaveBtn.setAttribute('disabled', true);
+  popupWithAddForm.setButtonTextContent();
+  api.addCard(place, link)
+    .then(response => {
+      const card = renderCard(link, place, response._id, response.owner._id, userId, response.likes);
+      cardsContainer.prepend(card.generateCard());
+    })
+    .catch(error => alert(`Ошибка: ${error}`))
+    .finally(() => {
+      popupWithAddForm.close();
+      popupWithAddForm.setButtonTextContent('Сохранить');
+
+      popupSaveBtn.classList.add('popup__save_disabled');
+      popupSaveBtn.setAttribute('disabled', true);
+    })
 }
 
 export function updateAvatarHandler(event, values) {
   event.preventDefault();
 
-  const { link } = values;
+  const { newAvatar } = values;
 
-  api.updateAvatar(link);
-  userInfo.setUserAvatar(link);
+  updateAvatarPopup.setButtonTextContent();
+  api.updateAvatar(newAvatar)
+    .then(response => {
+      userInfo.setUserAvatar(response.avatar);
+    })
+    .catch(error => alert(`Ошибка: ${error}`))
+    .finally(() => {
+      updateAvatarPopup.close();
+      updateAvatarPopup.setButtonTextContent('Сохранить');
+    })
 }
 
 export function renderCard(link, place, cardId, ownerId, currentUser, likesAmount) {
@@ -51,18 +85,34 @@ export function renderCard(link, place, cardId, ownerId, currentUser, likesAmoun
     likesAmount,
     {
       handleCardClick: () => popupWithImage.open(link, place),
-      deleteCardHandler: () => api.deleteCard(newCard.getCardId()),
+      deleteCardHandler: () => {
+        confirmDeletePopup.open();
+        confirmDeletePopup.setSubmitHandler(function() {
+          confirmDeletePopup.setButtonTextContent('Удаление...');
+          api.deleteCard(newCard.getCardId())
+            .then(function() {
+              newCard.deleteCard();
+            })
+            .catch(error => alert(`Ошибка: ${error}`))
+            .finally(() => {
+              confirmDeletePopup.close();
+              confirmDeletePopup.setButtonTextContent('Да');
+            })
+        })
+      },
       setLikeHandler: () => {
         api.setLike(newCard.getCardId())
           .then(data => {
             newCard.setLike(data.likes.length);
           })
+          .catch(error => alert(`Ошибка: ${error}`))
       },
       deleteLikeHandler: () => {
         api.removeLike(newCard.getCardId())
           .then(data => {
             newCard.deleteLike(data.likes.length);
           })
+          .catch(error => alert(`Ошибка: ${error}`))
       }
     }
   );

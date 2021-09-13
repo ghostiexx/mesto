@@ -60,20 +60,20 @@ export class Card {
     this._cardLikes.textContent = this.renderLikesAmount(likes);
   }
 
+  deleteCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
+  }
+
   _setEventListeners() {
     this._deleteButton.addEventListener('click', () => {
-      this._cardElement.remove();
-      this._cardElement = null;
-
       this._deleteCardHandler();
     });
 
     this._likeButton.addEventListener('click', () => {
       if (this._likeButton.classList.contains('card__button_active')) {
-        this._likeButton.classList.remove('card__button_active');
         this._deleteLikeHandler();
       } else {
-        this._likeButton.classList.add('card__button_active');
         this._setLikeHandler();
       }
     });

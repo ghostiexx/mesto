@@ -30,7 +30,6 @@ export class PopupWithForm extends Popup {
 
     this._popup.querySelector('.popup__form').addEventListener('submit', (event) => {
       this._submithandler(event, this._getInputValues());
-      this.close();
     });
   }
 }

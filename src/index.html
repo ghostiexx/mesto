@@ -83,7 +83,7 @@
   <div class="popup popup_type_confirm">
     <div class="popup__container">
       <h3 class="popup__title">Вы уверены?</h3>
-      <form action="/" name="popup-edit" class="popup__form popup__form_type_confirm">
+      <form action="/" name="popup-confirm" class="popup__form popup__form_type_confirm">
         <fieldset class="popup__inputs">
           <button class="popup__save popup__save_type_confirm button" type="submit" aria-label="Сохранить изменения">Да</button>
         </fieldset>
@@ -94,11 +94,11 @@
   </div>
   <div class="popup popup_type_update">
     <div class="popup__container">
-      <h3 class="popup__title">Новое место</h3>
+      <h3 class="popup__title">Обновить аватар</h3>
       <form action="/" name="popup-add" class="popup__form popup__form_type_update">
         <fieldset class="popup__inputs">
-          <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" id="image-link" name="image-link" required>
-          <span class="popup__error link-error">Message</span>
+          <input type="url" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" id="newAvatar" name="newAvatar" required>
+          <span class="popup__error newAvatar-error">Message</span>
           <button class="popup__save popup__save_disabled button" type="submit" aria-label="Создать" disabled>Сохранить</button>
         </fieldset>
       </form>

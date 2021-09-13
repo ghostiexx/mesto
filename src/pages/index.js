@@ -11,7 +11,14 @@ import {
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
-import { editFormHandler, addFormHandler, updateAvatarHandler, setInputValues, renderCard } from '../utils/functions.js'
+import { PopupConfirm } from '../components/PopupConfirm.js';
+import { 
+    editFormHandler, 
+    addFormHandler, 
+    updateAvatarHandler, 
+    setInputValues, 
+    renderCard 
+} from '../utils/functions.js'
 import { Section } from '../components/Section.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Api } from '../components/Api.js';
@@ -33,9 +40,10 @@ export const api =  new Api({
 });
 
 export const popupWithImage = new PopupWithImage('.popup_type_image');
-const popupWithEditForm = new PopupWithForm('.popup_type_edit', editFormHandler);
-const popupWithAddForm = new PopupWithForm('.popup_type_add', addFormHandler);
-const updateAvatarPopup = new PopupWithForm('.popup_type_update', updateAvatarHandler);
+export const popupWithEditForm = new PopupWithForm('.popup_type_edit', editFormHandler);
+export const popupWithAddForm = new PopupWithForm('.popup_type_add', addFormHandler);
+export const updateAvatarPopup = new PopupWithForm('.popup_type_update', updateAvatarHandler);
+export const confirmDeletePopup = new PopupConfirm('.popup_type_confirm');
 
 const formValidator = new FormValidator(validatorSelectors, formSelector);
 const formValidatorTwo = new FormValidator(validatorSelectors, formSelectorTwo);
@@ -57,18 +65,20 @@ api.getInitialCards().then((cards) => {
     renderInitialCards(cards);
 });
 
-api.getUserInfo().then((info) => {
-    userInfo.setUserInfo({
-        name: info.name,
-        description: info.about
+api.getUserInfo()
+    .then((info) => {
+        userInfo.setUserInfo({
+            name: info.name,
+            description: info.about
+        });
+        userInfo.setUserAvatar(info.avatar);
     });
-    userInfo.setUserAvatar(info.avatar);
-});
 
 popupWithImage.setEventListeners();
 popupWithEditForm.setEventListeners();
 popupWithAddForm.setEventListeners();
 updateAvatarPopup.setEventListeners();
+confirmDeletePopup.setEventListeners();
 
 formValidator.enableValidation();
 formValidatorTwo.enableValidation();

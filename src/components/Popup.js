@@ -2,6 +2,7 @@ export class Popup {
   constructor(selector) {
     this._selector = selector;
     this._popup = document.querySelector(selector);
+    this._submitBtn = this._popup.querySelector('.popup__save');
   }
 
   _handleEscClose(event) {
@@ -18,6 +19,11 @@ export class Popup {
   close() {
     this._popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', (e) => this._handleEscClose(e));
+  }
+  
+
+  setButtonTextContent(text = "Сохранение...") {
+    this._submitBtn.textContent = text
   }
 
   setEventListeners() {
