@@ -1,3 +1,5 @@
+import './index.css';
+
 import {
     btnEdit,
     btnAdd,
@@ -18,9 +20,7 @@ import { PopupConfirm } from '../components/PopupConfirm.js';
 import { Section } from '../components/Section.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Api } from '../components/Api.js';
-
-import './index.css';
-import {Card} from "../components/Сard";
+import { Card } from "../components/Сard";
 
 let userId;
 
@@ -62,6 +62,13 @@ function editFormHandler(event, values) {
         })
 }
 
+const cardSection = new Section({
+    renderer: (item) => {
+        const card = renderCard(item.link, item.name, item._id, item.owner._id, userId, item.likes);
+        return card.generateCard();
+    }
+}, '.cards');
+
 function addFormHandler(event, values) {
     event.preventDefault();
 
@@ -72,7 +79,7 @@ function addFormHandler(event, values) {
     api.addCard(place, link)
         .then(response => {
             const card = renderCard(link, place, response._id, response.owner._id, userId, response.likes);
-            cardsContainer.prepend(card.generateCard());
+            cardSection.addItem(card.generateCard());
             popupWithAddForm.close();
         })
         .catch(error => alert(`Ошибка: ${error}`))
@@ -84,7 +91,7 @@ function addFormHandler(event, values) {
         })
 }
 
-export function updateAvatarHandler(event, values) {
+function updateAvatarHandler(event, values) {
     event.preventDefault();
 
     const { newAvatar } = values;
@@ -101,7 +108,7 @@ export function updateAvatarHandler(event, values) {
         })
 }
 
-export function renderCard(link, place, cardId, ownerId, currentUser, likesAmount) {
+function renderCard(link, place, cardId, ownerId, currentUser, likesAmount) {
     const newCard = new Card(
         cardTemplate,
         { imageURI: link, title: place },
@@ -155,18 +162,6 @@ const addFormValidator = new FormValidator(validatorSelectors, addFormSelector);
 const editFormValidator = new FormValidator(validatorSelectors, editFormSelector);
 const updateFormValidator = new FormValidator(validatorSelectors, updateFormSelector);
 
-const renderInitialCards = (cards) => {
-    const cardSection = new Section({
-        items: cards,
-        renderer: (item) => {
-            const card = renderCard(item.link, item.name, item._id, item.owner._id, userId, item.likes);
-            return card.generateCard();
-        }
-    }, '.cards')
-
-    cardSection.render();
-};
-
 popupWithImage.setEventListeners();
 popupWithEditForm.setEventListeners();
 popupWithAddForm.setEventListeners();
@@ -202,6 +197,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
         userInfo.setUserAvatar(userData.avatar);
         userId = userData._id;
 
-        renderInitialCards(cards);
+        cardSection.render(cards.reverse());
+
     })
     .catch(error => alert(`Ошибка: ${error}`))
