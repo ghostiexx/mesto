@@ -46,26 +46,32 @@ export class FormValidator {
         }
     }
 
-    _setEventListeners(form) {
-        this._inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
-        this._button = this._form.querySelector(this._configurator.submitButtonSelector);
+    _setEventListeners() {
+        const inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
+        const button = this._form.querySelector(this._configurator.submitButtonSelector);
 
-        this._inputArray.forEach((input) => {
+        inputArray.forEach((input) => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._toggleButton(this._inputArray, this._button);
+                this._toggleButton(inputArray, button);
             });
         });
     }
 
     enableValidation() {
-        this._formArray = Array.from(this._form);
-    
-        this._formArray.forEach((form) => {
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-            });
-            this._setEventListeners(form);
+        this._form.addEventListener('submit', (event) => {
+            event.preventDefault();
         });
+        this._setEventListeners();
+    }
+
+    resetValidation() {
+        const inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
+        const button = this._form.querySelector(this._configurator.submitButtonSelector);
+
+        this._toggleButton(inputArray, button);
+        inputArray.forEach((input) => {
+            this._hideInputError(input);
+        })
     }
 }

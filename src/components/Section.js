@@ -11,7 +11,7 @@ export class Section {
   }
 
   addItem(item) {
-    this._container.append(item);
+    this._container.append(this._renderer(item));
   }
 
   render() {
@@ -19,7 +19,7 @@ export class Section {
 
     if (typeof this._renderer === 'function') {
       this._items.forEach(item => {
-        this.addItem(this._renderer(item));
+        this.addItem(item);
       });
     }
   }

@@ -6,14 +6,10 @@ export class Api {
 
   _responseHandler(response) {
     if (response.ok) {
-      return response.json();
+      return Promise.resolve(response.json());
     }
 
     return Promise.reject(`Error: ${response.status}`);
-  }
-
-  _errorHandler(error) {
-    console.log(error)
   }
 
   getInitialCards() {
@@ -23,7 +19,6 @@ export class Api {
       }
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   getUserInfo() {
@@ -33,7 +28,6 @@ export class Api {
       }
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   editProfile(name, about) {
@@ -49,7 +43,6 @@ export class Api {
       })
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   addCard(name, link) {
@@ -65,7 +58,6 @@ export class Api {
       })
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   deleteCard(cardId) {
@@ -77,7 +69,6 @@ export class Api {
       }
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   setLike(id) {
@@ -89,7 +80,6 @@ export class Api {
       }
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   removeLike(id) {
@@ -101,7 +91,6 @@ export class Api {
       }
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 
   updateAvatar(link) {
@@ -116,6 +105,5 @@ export class Api {
       })
     })
     .then(response => this._responseHandler(response))
-    .catch(error => this._errorHandler(error));
   }
 }

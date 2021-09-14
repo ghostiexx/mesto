@@ -8,11 +8,14 @@ export const validatorSelectors = {
 
 export const userId = '763cce9e3a4b06f54fdb3f56';
 
+
+export const nameFiled = document.querySelector('.popup__input_type_name');
+export const descriptionFiled = document.querySelector('.popup__input_type_description');
 export const cardsContainer = document.querySelector('.cards');
 export const btnEdit = document.querySelector('.profile__edit-button');
 export const btnAdd = document.querySelector('.profile__add-button');
 export const btnEditAvatar = document.querySelector('.profile__avatar-btn');
 export const cardTemplate = document.querySelector('#card-template').content;
-export const formSelector = document.querySelector('.popup__form_type_add');
-export const formSelectorTwo = document.querySelector('.popup__form_type_edit');
-export const formSelectorThree = document.querySelector('.popup__form_type_update');
+export const addFormSelector = document.querySelector('.popup__form_type_add');
+export const editFormSelector = document.querySelector('.popup__form_type_edit');
+export const updateFormSelector = document.querySelector('.popup__form_type_update');

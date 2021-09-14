@@ -1,8 +1,10 @@
 export class Popup {
   constructor(selector) {
     this._selector = selector;
-    this._popup = document.querySelector(selector);
+    this._popup = document.querySelector(this._selector);
     this._submitBtn = this._popup.querySelector('.popup__save');
+
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   _handleEscClose(event) {
@@ -13,17 +15,16 @@ export class Popup {
 
   open() {
     this._popup.classList.add('popup_opened');
-    document.addEventListener('keydown', (e) => this._handleEscClose(e));
+    document.addEventListener('keydown', this._handleEscClose);
   }
 
   close() {
+    document.removeEventListener('keydown', this._handleEscClose);
     this._popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', (e) => this._handleEscClose(e));
   }
-  
 
   setButtonTextContent(text = "Сохранение...") {
-    this._submitBtn.textContent = text
+    if (this._submitBtn) this._submitBtn.textContent = text;
   }
 
   setEventListeners() {
