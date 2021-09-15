@@ -72,7 +72,6 @@ const cardSection = new Section({
 function addFormHandler(event, values) {
     event.preventDefault();
 
-    const popupSaveBtn = event.target.querySelector('.popup__save');
     const { place, link } = values;
 
     popupWithAddForm.setButtonTextContent();
@@ -85,9 +84,6 @@ function addFormHandler(event, values) {
         .catch(error => alert(`Ошибка: ${error}`))
         .finally(() => {
             popupWithAddForm.setButtonTextContent('Сохранить');
-
-            popupSaveBtn.classList.add('popup__save_disabled');
-            popupSaveBtn.setAttribute('disabled', true);
         })
 }
 

@@ -30,30 +30,30 @@ export class FormValidator {
         }
     }
 
-    _hasInvalidInput(inputArray) {
-        return inputArray.some((input) => {
+    _hasInvalidInput() {
+        return this._inputArray.some((input) => {
             return !input.validity.valid;
         });
     }
 
-    _toggleButton(inputArray, button) {
-        if (this._hasInvalidInput(inputArray)) {
-            button.classList.add(this._configurator.inactiveButtonClass);
-            button.setAttribute('disabled', true);
+    _toggleButton() {
+        if (this._hasInvalidInput()) {
+            this._button.classList.add(this._configurator.inactiveButtonClass);
+            this._button.setAttribute('disabled', true);
         } else {
-            button.classList.remove(this._configurator.inactiveButtonClass);
-            button.removeAttribute('disabled');
+            this._button.classList.remove(this._configurator.inactiveButtonClass);
+            this._button.removeAttribute('disabled');
         }
     }
 
     _setEventListeners() {
-        const inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
-        const button = this._form.querySelector(this._configurator.submitButtonSelector);
+        this._inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
+        this._button = this._form.querySelector(this._configurator.submitButtonSelector);
 
-        inputArray.forEach((input) => {
+        this._inputArray.forEach((input) => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._toggleButton(inputArray, button);
+                this._toggleButton();
             });
         });
     }
@@ -66,11 +66,8 @@ export class FormValidator {
     }
 
     resetValidation() {
-        const inputArray = Array.from(this._form.querySelectorAll(this._configurator.inputSelector));
-        const button = this._form.querySelector(this._configurator.submitButtonSelector);
-
-        this._toggleButton(inputArray, button);
-        inputArray.forEach((input) => {
+        this._toggleButton();
+        this._inputArray.forEach((input) => {
             this._hideInputError(input);
         })
     }
